@@ -26,5 +26,11 @@ int main() {
 	cv::imshow("Redimensionada para resolucao original", restoredImage);
 	cv::waitKey(0);
 
+	const std::filesystem::path basePath = std::filesystem::path(__FILE__).parent_path();
+	cv::imwrite((basePath / "resultado_original.jpg").string(), image);
+	cv::imwrite((basePath / "resultado_reduzida.jpg").string(), reducedImage);
+	cv::imwrite((basePath / "resultado_restaurada.jpg").string(), restoredImage);
+	std::cout << "Imagens salvas em: " << basePath << '\n';
+
 	return 0;
 }

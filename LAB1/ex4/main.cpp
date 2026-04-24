@@ -22,5 +22,9 @@ int main() {
 	cv::imshow("Imagem invertida", invertedImage);
 	cv::waitKey(0);
 
+	const std::filesystem::path outputPath = std::filesystem::path(__FILE__).parent_path() / "resultado_invertido.jpg";
+	cv::imwrite(outputPath.string(), invertedImage);
+	std::cout << "Imagem salva em: " << outputPath << '\n';
+
 	return 0;
 }

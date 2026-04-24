@@ -20,6 +20,9 @@ int main() {
 	cv::imshow("Escala de cinza", grayImage);
 	cv::waitKey(0);
 
+	const std::filesystem::path outputPath = std::filesystem::path(__FILE__).parent_path() / "resultado_cinza.jpg";
+	cv::imwrite(outputPath.string(), grayImage);
+	std::cout << "Imagem salva em: " << outputPath << '\n';
 
 	return 0;
 }

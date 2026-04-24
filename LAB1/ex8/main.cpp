@@ -45,5 +45,12 @@ int main() {
 	cv::imshow("3) Reduzida + 4 niveis de cinza", reducedGray4Levels);
 	cv::waitKey(0);
 
+	const std::filesystem::path basePath = std::filesystem::path(__FILE__).parent_path();
+	cv::imwrite((basePath / "resultado_original.jpg").string(), image);
+	cv::imwrite((basePath / "resultado_reduzida.jpg").string(), reducedImage);
+	cv::imwrite((basePath / "resultado_cinza4niveis.jpg").string(), gray4Levels);
+	cv::imwrite((basePath / "resultado_reduzida_cinza4niveis.jpg").string(), reducedGray4Levels);
+	std::cout << "Imagens salvas em: " << basePath << '\n';
+
 	return 0;
 }

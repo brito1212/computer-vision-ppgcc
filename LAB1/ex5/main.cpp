@@ -22,6 +22,10 @@ int main() {
 	cv::imshow("Escala de cinza", grayImage);
 	cv::imshow("Preto e branco (limiar 128)", bwImage);
 	cv::waitKey(0);
+
+	const std::filesystem::path outputPath = std::filesystem::path(__FILE__).parent_path() / "resultado_binario.jpg";
+	cv::imwrite(outputPath.string(), bwImage);
+	std::cout << "Imagem salva em: " << outputPath << '\n';
 	
 	return 0;
 }

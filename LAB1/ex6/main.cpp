@@ -47,6 +47,13 @@ int main() {
 	cv::imshow("Cinza 16 niveis", gray16);
 	cv::imshow("Cinza 4 niveis", gray4);
 	cv::waitKey(0);
+
+	const std::filesystem::path basePath = std::filesystem::path(__FILE__).parent_path();
+	cv::imwrite((basePath / "resultado_128niveis.jpg").string(), gray128);
+	cv::imwrite((basePath / "resultado_64niveis.jpg").string(), gray64);
+	cv::imwrite((basePath / "resultado_16niveis.jpg").string(), gray16);
+	cv::imwrite((basePath / "resultado_4niveis.jpg").string(), gray4);
+	std::cout << "Imagens salvas em: " << basePath << '\n';
 	
 	
 	return 0;
